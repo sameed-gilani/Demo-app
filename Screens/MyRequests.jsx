@@ -4,9 +4,9 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
+import Button from '../Components/Button';
 
 export default function MyRequests() {
   const [pressedButton, setPressedButton] = useState(null);
@@ -391,29 +391,26 @@ export default function MyRequests() {
       <View>
         <View style={styles.header}>
           <Text style={styles.headerText}>My Requests</Text>
-
           <View style={styles.buttonContainer}>
             {headerButtons.map(button => {
               return (
-                <TouchableOpacity
-                  style={
+                <Button
+                  styles={
                     button?.id === pressedButton
                       ? styles?.highlightedButton
                       : styles.button
                   }
+                  buttonText={button.title}
+                  textStyles={
+                    button?.id === pressedButton
+                      ? styles?.highlightedButtonText
+                      : styles.buttonText
+                  }
                   onPress={() => {
                     button.onPress();
                     setPressedButton(button?.id);
-                  }}>
-                  <Text
-                    style={
-                      button?.id === pressedButton
-                        ? styles?.highlightedButtonText
-                        : styles.buttonText
-                    }>
-                    {button.title}
-                  </Text>
-                </TouchableOpacity>
+                  }}
+                />
               );
             })}
           </View>
@@ -426,13 +423,14 @@ export default function MyRequests() {
           <View style={styles.chipButtonContainer}>
             {chipButtons.map(button => {
               return (
-                <TouchableOpacity
-                  style={styles.chipButtons}
+                <Button
+                  styles={styles.chipButtons}
                   onPress={() => {
                     button.onPress();
-                  }}>
-                  <Text style={styles.buttonText}>{button.title}</Text>
-                </TouchableOpacity>
+                  }}
+                  buttonText={button.title}
+                  textStyles={styles.buttonText}
+                />
               );
             })}
           </View>
@@ -440,7 +438,6 @@ export default function MyRequests() {
       </View>
 
       {/* Scrollable Content */}
-
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={[
@@ -478,8 +475,8 @@ export default function MyRequests() {
 
               <View style={styles.separator}></View>
               <View style={{flexDirection: 'row'}}>
-                <TouchableOpacity
-                  style={{
+                <Button
+                  styles={{
                     flex: 1,
                     marginRight: 5,
                     width: '50%',
@@ -490,19 +487,18 @@ export default function MyRequests() {
                     alignItems: 'center',
                     flexDirection: 'row',
                   }}
-                  onPress={() => {}}>
-                  <Text
-                    style={{
-                      color: '#009f2a',
-                      fontSize: 13,
-                      fontWeight: '600',
-                      marginRight: 6,
-                    }}>
-                    Whatsapp
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
+                  onPress={() => {}}
+                  buttonText={'Whatsapp'}
+                  textStyles={{
+                    color: '#009f2a',
+                    fontSize: 13,
+                    fontWeight: '600',
+                    marginRight: 6,
+                  }}
+                />
+
+                <Button
+                  styles={{
                     flex: 1,
                     marginRight: 5,
                     width: '50%',
@@ -512,12 +508,14 @@ export default function MyRequests() {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}
-                  onPress={() => {}}>
-                  <Text
-                    style={{color: '#e42322', fontSize: 13, fontWeight: '600'}}>
-                    Call
-                  </Text>
-                </TouchableOpacity>
+                  onPress={() => {}}
+                  buttonText="Call"
+                  textStyles={{
+                    color: '#e42322',
+                    fontSize: 13,
+                    fontWeight: '600',
+                  }}
+                />
               </View>
             </View>
           );
