@@ -1,12 +1,7 @@
 import {useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Button from '../Components/Button';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function MyRequests() {
   const [pressedButton, setPressedButton] = useState(null);
@@ -461,7 +456,7 @@ export default function MyRequests() {
                     fontSize: 12,
                     color: '#cb8327',
                     borderRadius: 2,
-                    fontWeight: 500
+                    fontWeight: 500,
                   }}>{`${data.disposition} • ${data.status}`}</Text>
               </View>
 
@@ -469,23 +464,38 @@ export default function MyRequests() {
               <Text style={{fontSize: 12, color: '#7a7a7a', fontWeight: 500}}>
                 {data.car}
               </Text>
-              <Text
-                style={
-                  styles.subtext
-                }>{`${data.date} • ${data.paymentStatus}`}</Text>
+              <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 5}}>
+                <Icon
+                  name="calendar"
+                  size={14}
+                  color="#8a8a8a"
+                  style={{marginRight: 4}}
+                />
+                <Text style={styles.subtext}>{data.date}</Text>
+
+                <Text style={[styles.subtext, {marginHorizontal: 6, fontSize: 16}]}>•</Text>
+
+                <Icon
+                  name="cash"
+                  size={14}
+                  color="#8a8a8a"
+                  style={{marginRight: 4}}
+                />
+                <Text style={styles.subtext}>{data.paymentStatus}</Text>
+              </View>
 
               <View style={styles.separator}></View>
-              <View style={{flexDirection: 'row', gap: 7}}>
+              <View style={{flexDirection: 'row', gap: 8}}>
                 <Button
                   styles={{
-                    flex: 1,
-                    width: '50%',
+                    flex: "row",
                     backgroundColor: '#e9f8ed',
                     padding: 10,
+                    width: "50%",
+
                     borderRadius: 4,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    flexDirection: 'row',
                   }}
                   onPress={() => {}}
                   buttonText={'Whatsapp'}
@@ -495,12 +505,15 @@ export default function MyRequests() {
                     fontWeight: '600',
                     marginRight: 6,
                   }}
+                  icon={
+                    <Icon name="whatsapp" size={15} color="#25D366" brand />
+                  }
                 />
 
                 <Button
                   styles={{
-                    flex: 1,
-                    width: '50%',
+                    flex: "row",
+                    width: "50%",
                     backgroundColor: '#fef2f2',
                     padding: 10,
                     borderRadius: 4,
@@ -514,6 +527,7 @@ export default function MyRequests() {
                     fontSize: 13,
                     fontWeight: '600',
                   }}
+                  icon={<Icon name="phone" size={15} color="#e00201" />}
                 />
               </View>
             </View>
