@@ -461,6 +461,7 @@ export default function MyRequests() {
                     fontSize: 12,
                     color: '#cb8327',
                     borderRadius: 2,
+                    fontWeight: 500
                   }}>{`${data.disposition} • ${data.status}`}</Text>
               </View>
 
@@ -474,14 +475,13 @@ export default function MyRequests() {
                 }>{`${data.date} • ${data.paymentStatus}`}</Text>
 
               <View style={styles.separator}></View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row', gap: 7}}>
                 <Button
                   styles={{
                     flex: 1,
-                    marginRight: 5,
                     width: '50%',
                     backgroundColor: '#e9f8ed',
-                    padding: 12,
+                    padding: 10,
                     borderRadius: 4,
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -500,10 +500,9 @@ export default function MyRequests() {
                 <Button
                   styles={{
                     flex: 1,
-                    marginRight: 5,
                     width: '50%',
                     backgroundColor: '#fef2f2',
-                    padding: 12,
+                    padding: 10,
                     borderRadius: 4,
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -533,12 +532,12 @@ const styles = StyleSheet.create({
   header: {
     height: 90,
     paddingHorizontal: 16,
-    boxShadow: '0 5px 8px -5px rgba(0, 0, 0, 0.2)',
+    boxShadow: '0 5px 6px -5px rgba(0, 0, 0, 0.2)',
   },
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    paddingBottom: 6,
+    paddingBottom: 10,
   },
   scrollContent: {
     padding: 2,
@@ -557,7 +556,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: '#9E9E9E',
+    borderColor: '#f1f1f1',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -581,7 +580,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#9E9E9E',
+    borderColor: '#f1f1f1',
   },
   chipButtonContainer: {
     padding: 6,
@@ -598,7 +597,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '600',
     marginBottom: 8,
   },
   content: {
@@ -612,7 +611,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: '#ccc',
+    backgroundColor: '#f1f1f1',
     marginVertical: 10,
   },
 });
