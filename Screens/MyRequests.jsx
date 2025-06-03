@@ -437,7 +437,7 @@ export default function MyRequests() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={[
           styles.scrollContent,
-          {backgroundColor: '#e8e6e1', flexDirection: 'column', gap: 4},
+          {backgroundColor: '#f2f3f5', flexDirection: 'column', gap: 4},
         ]}>
         {cardData.map(data => {
           return (
@@ -445,11 +445,10 @@ export default function MyRequests() {
               <View
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={[styles.subtext, {paddingBottom: 5}]}>
-                  {`Ref: ${data.ref} - ${data.type}`}{' '}
+                  {`Ref: ${data.ref} - ${data.type}`}
                 </Text>
                 <Text
                   style={{
-                    alignSelf: 'flex-start',
                     backgroundColor: '#FFF4E1',
                     paddingHorizontal: 8,
                     paddingVertical: 4,
@@ -464,7 +463,12 @@ export default function MyRequests() {
               <Text style={{fontSize: 12, color: '#7a7a7a', fontWeight: 500}}>
                 {data.car}
               </Text>
-              <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 5}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  paddingTop: 5,
+                }}>
                 <Icon
                   name="calendar"
                   size={14}
@@ -473,7 +477,10 @@ export default function MyRequests() {
                 />
                 <Text style={styles.subtext}>{data.date}</Text>
 
-                <Text style={[styles.subtext, {marginHorizontal: 6, fontSize: 16}]}>•</Text>
+                <Text
+                  style={[styles.subtext, {marginHorizontal: 6, fontSize: 16}]}>
+                  •
+                </Text>
 
                 <Icon
                   name="cash"
@@ -488,11 +495,10 @@ export default function MyRequests() {
               <View style={{flexDirection: 'row', gap: 8}}>
                 <Button
                   styles={{
-                    flex: "row",
+                    flex: 'row',
                     backgroundColor: '#e9f8ed',
                     padding: 10,
-                    width: "50%",
-
+                    width: '50%',
                     borderRadius: 4,
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -512,8 +518,8 @@ export default function MyRequests() {
 
                 <Button
                   styles={{
-                    flex: "row",
-                    width: "50%",
+                    flex: 'row',
+                    width: '50%',
                     backgroundColor: '#fef2f2',
                     padding: 10,
                     borderRadius: 4,
